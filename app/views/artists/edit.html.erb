@@ -1,0 +1,71 @@
+<!-- Validation failure messages -->
+
+<% if @artist.errors.any? %>
+  <% @artist.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Edit Artist #<%= @artist.id %></h3>
+      </div>
+      <div class="panel-body">
+        <form action="/update_artist/<%= @artist.id %>" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for artist -->
+          <div class="form-group">
+            <label for="artist" class="col-sm-2 control-label">
+              Artist
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="artist" name="artist" placeholder="Artist" class="form-control" value="<%= @artist.artist %>">
+            </div>
+          </div>
+
+          <!-- Label and input for photo -->
+          <div class="form-group">
+            <label for="photo" class="col-sm-2 control-label">
+              Photo
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="photo" name="photo" placeholder="Photo" class="form-control" value="<%= @artist.photo %>">
+            </div>
+          </div>
+
+          <!-- Label and input for bio -->
+          <div class="form-group">
+            <label for="bio" class="col-sm-2 control-label">
+              Bio
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="bio" name="bio" placeholder="Bio" class="form-control" value="<%= @artist.bio %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-warning">
+                Update Artist
+              </button>
+              or
+              <a href="/artists/<%= @artist.id %>">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- End responsive panel example -->
