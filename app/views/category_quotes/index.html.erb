@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
-    Quotes
-    <a href="/quotes/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+    Category quotes
+    <a href="/category_quotes/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
   </h1>
 </div>
 
@@ -9,41 +9,38 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <input type="text" id="quicksearch" placeholder="Search Quotes (start typing)" class="form-control">
+    <input type="text" id="quicksearch" placeholder="Search Category quotes (start typing)" class="form-control">
   </div>
 </div>
 
 <hr>
 
 <div class="row isotope-container">
-<% @quotes.each do |quote| %>
+<% @category_quotes.each do |category_quote| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Quote #<%= quote.id %></h3>
+        <h3 class="panel-title">Category Quote #<%= category_quote.id %></h3>
       </div>
       <div class="panel-body">
         <dl>
-          <dt>Lyric</dt>
-          <dd>"<%= quote.lyric %>"</dd>
+          <dt>Quote</dt>
+          <dd><%= category_quote.quote.lyric %></dd>
 
-          <dt>Song</dt>
-          <dd><%= quote.song.title %></dd>
-
-          <dt>Artist</dt>
-          <dd><%= quote.artist.try(:artist) %></dd>
+          <dt>Category</dt>
+          <dd><%= category_quote.category.name%></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">
-          <a href="/quotes/<%= quote.id %>" class="btn btn-primary">
+          <a href="/category_quotes/<%= category_quote.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>
           </a>
 
-          <a href="/quotes/<%= quote.id %>/edit" class="btn btn-warning">
+          <a href="/category_quotes/<%= category_quote.id %>/edit" class="btn btn-warning">
             <i class="fa fa-edit"></i>
           </a>
 
-          <a href="/delete_quote/<%= quote.id %>" class="btn btn-danger" rel="nofollow">
+          <a href="/delete_category_quote/<%= category_quote.id %>" class="btn btn-danger" rel="nofollow">
             <i class="fa fa-trash-o"></i>
           </a>
         </div>

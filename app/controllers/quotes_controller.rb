@@ -5,6 +5,7 @@ class QuotesController < ApplicationController
 
   def show
     @quote = Quote.find(params[:id])
+    @category_quote = CategoryQuote.new
   end
 
   def new
@@ -40,6 +41,10 @@ class QuotesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def qotd
+    @quote = Quote.offset(rand(Quote.count)).first
   end
 
   def destroy

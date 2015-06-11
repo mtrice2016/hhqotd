@@ -14,7 +14,7 @@
               <dd><%= @quote.lyric %></dd>
 
               <dt>Song</dt>
-              <dd><%= @quote.song_id %></dd>
+              <dd><%= @quote.song.title %></dd>
 
               <dt>Artist</dt>
               <dd><%= @quote.artist.artist%></dd>
@@ -37,7 +37,19 @@
         </div>
       </div>
     </div>
+          <div class="panel-heading">
+        <h3 class="panel-title">Categories</h3>
+      </div>
+  <% @quote.categories.each do |cat|  %>
+  <li class="list-group-item"><%= cat.name %></li>
+
+
+
+<% end %>
+</ul>
+
   </div>
 </div>
+
 
 <!-- End responsive panel example -->

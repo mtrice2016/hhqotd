@@ -1,6 +1,24 @@
 Rails.application.routes.draw do
 
 
+  devise_for :users
+  # Routes for the Category_quote resource:
+  # CREATE
+  get "/category_quotes/new", :controller => "category_quotes", :action => "new"
+  post "/create_category_quote", :controller => "category_quotes", :action => "create"
+
+  # READ
+  get "/category_quotes", :controller => "category_quotes", :action => "index"
+  get "/category_quotes/:id", :controller => "category_quotes", :action => "show"
+
+  # UPDATE
+  get "/category_quotes/:id/edit", :controller => "category_quotes", :action => "edit"
+  post "/update_category_quote/:id", :controller => "category_quotes", :action => "update"
+
+  # DELETE
+  get "/delete_category_quote/:id", :controller => "category_quotes", :action => "destroy"
+  #------------------------------
+
   #root 'welcome#index'
   get 'welcome/index'
 

@@ -39,7 +39,7 @@
             </label>
             <div class="col-sm-10">
 
-              <%= select_tag(:song_id, options_from_collection_for_select(Song.all, :id, :title, @quote.song_id), :class => "form-control") %>
+              <%= select_tag(:song_id, options_from_collection_for_select(Song.order(:title), :id, :title, @quote.song_id), :class => "form-control") %>
             </div>
           </div>
 
@@ -50,7 +50,7 @@
             </label>
             <div class="col-sm-10">
 
-              <%= select_tag(:artist_id, options_from_collection_for_select(Artist.all, :id, :artist, @quote.artist_id), :class => "form-control") %>
+              <%= select_tag(:artist_id, options_from_collection_for_select(Artist.order(:artist), :id, :artist, @quote.artist_id), :class => "form-control") %>
             </div>
           </div>
 

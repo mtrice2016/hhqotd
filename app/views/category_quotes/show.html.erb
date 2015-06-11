@@ -4,28 +4,29 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Category #<%= @category.id %></h3>
+        <h3 class="panel-title">Category Quote #<%= @category_quote.id %></h3>
       </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
+              <dt>Quote</dt>
+              <dd><%= @category_quote.quote_id %></dd>
+
               <dt>Category</dt>
-              <dd><%= @category.name %></dd>
-
-
+              <dd><%= @category_quote.category_id %></dd>
 
             </dl>
             <div class="btn-group btn-group-justified">
-              <a href="/categories" class="btn btn-primary">
+              <a href="/category_quotes" class="btn btn-primary">
                 <i class="fa fa-chevron-left"></i>
               </a>
 
-              <a href="/categories/<%= @category.id %>/edit" class="btn btn-warning">
+              <a href="/category_quotes/<%= @category_quote.id %>/edit" class="btn btn-warning">
                 <i class="fa fa-edit"></i>
               </a>
 
-              <a href="/delete_category/<%= @category.id %>" class="btn btn-danger" rel="nofollow">
+              <a href="/delete_category_quote/<%= @category_quote.id %>" class="btn btn-danger" rel="nofollow">
                 <i class="fa fa-trash-o"></i>
               </a>
             </div>
@@ -33,24 +34,7 @@
         </div>
       </div>
     </div>
-<br>
-
-  <% @category.quotes.each do |quote|  %>
-<!--   <li class="list-group-item">"<%= quote.lyric %>" -<%= quote.artist.artist %></li>
- -->
-  <ul>
-<div class="page-header">
-<h1>"<%= quote.lyric %>" <small><a href="/artists/<%= quote.artist.id %>">-<%= quote.artist.artist %></a></small>
-</h1>
-
-</ul>
-
-<% end %>
-
   </div>
 </div>
-
-
-
 
 <!-- End responsive panel example -->

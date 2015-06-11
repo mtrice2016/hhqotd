@@ -14,7 +14,7 @@
               <dd><%= @artist.artist %></dd>
 
               <dt>Photo</dt>
-              <dd><img src = "<%= @artist.photo %>" height = "500"></dd>
+              <dd><img src = "<%= @artist.photo %>"   width ="500"></dd>
 
               <dt>Bio</dt>
               <dd><%= @artist.bio %></dd>
@@ -35,14 +35,46 @@
             </div>
           </div>
 
-           <ul class="list-group">
-+           <% @artists.albums.each do |album| %>
-+            <li class="list-group-item"><%= album.title %></li>
-+           <% end %>
-+          </ul>
+
         </div>
       </div>
-    </div>
+
+
+
+
+     </div>
+
+     <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Albums</h3>
+        </div>
+        <div class="panel-body">
+
+           <% @artist.albums.each do |album| %>
+           <li class="list-group-item"><%= album.title %></li>
+           <% end %>
+
+         </div>
+       </div>
+
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Quotes</h3>
+      </div>
+      <div class="panel-body">
+
+        <% @artist.quotes.each do |quote|  %>
+        <ul>
+          <div class="page-header">
+            <h1>"<%= quote.lyric %>" <small> -<%= quote.artist.artist %></small>
+            </h1>
+
+          </ul>
+
+          <% end %>
+        </div>
+      </div>
+
   </div>
 </div>
 

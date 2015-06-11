@@ -38,7 +38,7 @@
               Artist
             </label>
             <div class="col-sm-10">
-              <input type="text" id="artist_id" name="artist_id" placeholder="Artist" class="form-control" value="<%= @album.artist_id %>">
+             <%= select_tag(:artist_id, options_from_collection_for_select(Artist.order(:artist), :id, :artist, @album.artist_id), :class => "form-control") %>
             </div>
           </div>
 

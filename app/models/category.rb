@@ -1,3 +1,5 @@
 class Category < ActiveRecord::Base
-  belongs_to :quote
+
+  has_many :category_quotes , :class_name => "CategoryQuote", :foreign_key => "category_id"
+has_many :quotes, :through => :category_quotes
 end

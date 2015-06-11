@@ -1,15 +1,36 @@
 <div class="page-header">
+
+<style>
+/*body {background-color:lightgrey}*/
+h1    {width: 600px;
+        }
+h3    {color:gold;
+        width:600px;}
+
+
+</style>
   <h1>
-   <% @var = rand(0...6) %>
+   "<%=@quote.lyric %>"
+
 
   </h1>
 
-  <div class="panel-heading">
-        <h3 class="panel-title">Quote #<%= 3.id %></h3>
-      </div>
-</div>
+<h3 align ="right"><a href="/artists/<%= @quote.artist.id %>" style="color:gold"> -<%= @quote.artist.artist %></a>
+
+
+</h3>
+
+
+  <br>
+  <br>
+
+Categories:
+<p><% @quote.categories.each do |cat|  %>
+<li class="list-group-item"><a href="/categories/<%= cat.id %>"> <%= cat.name %></a></li>
 
 
 
+<% end %>
 
-<p>@var</p>
+</p>
+

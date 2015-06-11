@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all
+    @categories = Category.order(:name)
   end
 
   def show
@@ -13,8 +13,8 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new
-    @category.category = params[:category]
-    @category.quote_id = params[:quote_id]
+    @category.name = params[:category]
+    # @category.quote_id = params[:quote_id]
 
     if @category.save
       redirect_to "/categories", :notice => "Category created successfully."
@@ -30,8 +30,8 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
 
-    @category.category = params[:category]
-    @category.quote_id = params[:quote_id]
+    @category.name = params[:category]
+    # @category.quote_id = params[:quote_id]
 
     if @category.save
       redirect_to "/categories", :notice => "Category updated successfully."

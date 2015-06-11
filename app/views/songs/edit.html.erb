@@ -38,7 +38,7 @@
               Artist
             </label>
             <div class="col-sm-10">
-              <%= select_tag(:artist_id, options_from_collection_for_select(Artist.all, :id, :artist, @song.artist_id), :class => "form-control") %>
+              <%= select_tag(:artist_id, options_from_collection_for_select(Artist.order(:artist), :id, :artist, @song.artist_id), :class => "form-control") %>
             </div>
           </div>
 
@@ -48,7 +48,7 @@
               Album
             </label>
             <div class="col-sm-10">
-              <%= select_tag(:album_id, options_from_collection_for_select(Album.all, :id, :title, @song.album_id), :class => "form-control") %>
+              <%= select_tag(:album_id, options_from_collection_for_select(Album.order(:title), :id, :title, @song.album_id), :class => "form-control") %>
             </div>
           </div>
 
