@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   # READ
   get "/artists", :controller => "artists", :action => "index"
   get "/artists/:id", :controller => "artists", :action => "show"
+  get "/artists/view/:id", :controller => "artists", :action => "showme"
 
   # UPDATE
   get "/artists/:id/edit", :controller => "artists", :action => "edit"
@@ -85,6 +86,7 @@ Rails.application.routes.draw do
   # READ
   get "/categories", :controller => "categories", :action => "index"
   get "/categories/:id", :controller => "categories", :action => "show"
+  get "/categories/view/:id", :controller => "categories", :action => "showme"
 
   # UPDATE
   get "/categories/:id/edit", :controller => "categories", :action => "edit"

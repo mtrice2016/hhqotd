@@ -5,5 +5,6 @@ class Quote < ActiveRecord::Base
   has_many :categories, :through => :category_quotes
 
   validates :song, :presence => true
+  validates :lyric, :presence => true
 
 end

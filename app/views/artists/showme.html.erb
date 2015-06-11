@@ -6,7 +6,12 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/slate/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-
+  <style>
+    /* Only necessary if you are using navbar-fixed-top */
+    body {
+      padding-top: 60px;
+    }
+  </style>
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -54,43 +59,77 @@
     <%= yield %>
   </div>
 
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @artist.artist%></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <dl class="dl-horizontal">
+              <dt>Artist</dt>
+              <dd><%= @artist.artist %></dd>
 
-<div class="page-header">
+              <dt>Photo</dt>
+              <dd><img src = "<%= @artist.photo %>"   width ="500"></dd>
 
-<style>
-/*body {background-color:lightgrey}*/
-h1    {width: 600px;
-        }
-h3    {color:gold;
-        width:600px;}
+              <dt>Bio</dt>
+              <dd><%= @artist.bio %></dd>
 
+            </dl>
+            <div class="btn-group btn-group-justified">
+              <a href="/" class="btn btn-primary">
+                <i class="fa fa-chevron-left"></i>
+              </a>
 
-</style>
-
-  <div class="page-header">
-
-  <h1>
-   "<%=@quote.lyric %>"
+            </div>
+          </div>
 
 
-  </h1>
+        </div>
+      </div>
 
-<h3 align ="right"><a href="/artists/view/<%= @quote.artist.id %>" style="color:gold"> -<%= @quote.artist.artist %></a>
 
 
-</h3>
 
+     </div>
+
+     <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Albums</h3>
+        </div>
+        <div class="panel-body">
+
+           <% @artist.albums.each do |album| %>
+           <li class="list-group-item"><%= album.title %></li>
+           <% end %>
+
+         </div>
+       </div>
+
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Quotes</h3>
+      </div>
+      <div class="panel-body">
+
+        <% @artist.quotes.each do |quote|  %>
+        <ul>
+          <div class="page-header">
+            <h1>"<%= quote.lyric %>" <small> -<%= quote.artist.artist %></small>
+            </h1>
+
+          </ul>
+
+          <% end %>
+        </div>
+      </div>
+
+  </div>
 </div>
-  <br>
-  <br>
 
-Categories:
-<p><% @quote.categories.each do |cat|  %>
-<li class="list-group-item"><a href="/categories/view/<%= cat.id %>"> <%= cat.name %></a></li>
-
-
-
-<% end %>
-
-</p>
 </body>
+
+<!-- End responsive panel example -->
